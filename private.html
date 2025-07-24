@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Private Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Private Room</h1>
+  <div id="auth">
+    <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="checkPassword()">Enter</button>
+  </div>
+
+  <div id="private-chat" style="display:none;">
+    <div id="chat-box"></div>
+    <input type="text" id="messageInput" placeholder="Type a message...">
+    <button onclick="sendMessage()">Send</button>
+
+    <div id="voice-call">
+      <button onclick="startVoiceCall()">🔊 Start Voice Call</button>
+      <button onclick="stopVoiceCall()">🔇 Stop Voice Call</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const correctPassword = "jackjill";
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      if (input === correctPassword) {
+        document.getElementById("auth").style.display = "none";
+        document.getElementById("private-chat").style.display = "block";
+      } else {
+        alert("Incorrect password!");
+      }
+    }
+  </script>
+  <script src="client.js"></script>
+</body>
+</html>
