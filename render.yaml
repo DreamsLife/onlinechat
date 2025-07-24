@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: whatsapp-clone
+    name: online-chatting
     env: node
     plan: free
     buildCommand: npm install
